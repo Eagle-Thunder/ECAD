@@ -1,0 +1,33 @@
+﻿<Window x:Class="ECAD.SimWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECAD" mc:Ignorable="d"
+        Title="SimWindow" Height="414" Width="374">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Blue">
+            <StackPanel>
+                <TextBlock><Run>Mode Selection:</Run></TextBlock>
+                <ComboBox Name="ModePick" SelectionChanged="PickMode">
+                    <ComboBoxItem Name="Idle" IsSelected="True">Idle</ComboBoxItem>
+                    <ComboBoxItem Name="EditPins">ePins</ComboBoxItem>
+                    <ComboBoxItem Name="EditComponents">eCmps</ComboBoxItem>
+                    <ComboBoxItem Name="EditLinks">eLinks</ComboBoxItem>
+                    <ComboBoxItem Name="Running">Running</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+        <WrapPanel Name="Tools" Grid.Row="1"></WrapPanel>
+        <StackPanel Name="InPins" Orientation="Horizontal" Grid.Column="1"></StackPanel>
+        <Canvas Name="Drawing" Grid.Row="1" Grid.Column="1"></Canvas>
+    </Grid>
+</Window>
